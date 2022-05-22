@@ -1,7 +1,7 @@
 # GUI Fan Controller for Linux
 
-Requirements
-  Python3
-  PyQt5
-  nbfc installed(Notebook fan control)
+Requirements\n
+  Python3\n
+  PyQt5\n
+  nbfc installed(Notebook fan control)\n
 
