@@ -157,9 +157,13 @@ class Ui_Fan(object):
 
 
     def changeValue1(self, value):
-        newcommand = command + ' -a'
-        os.system(newcommand)
+        #newcommand = command + ' -a'
+        #os.system(newcommand)
         self.radioButton1.setChecked(True)
+        f = open(fanctrl2, "r")
+        newcommand = command + ' -f 1 -s ' + f.read()
+        f.close()
+        os.system(newcommand)
         fan1 = str(int(value)+1)
         newcommand = command + ' -f 0 -s ' + fan1
         os.system(newcommand)
@@ -169,9 +173,13 @@ class Ui_Fan(object):
     
 
     def changeValue2(self, value):
-        newcommand = command + ' -a'
-        os.system(newcommand)
+        #newcommand = command + ' -a'
+        #os.system(newcommand)
         self.radioButton1.setChecked(True)
+        f = open(fanctrl1, "r")
+        newcommand = command + ' -f 0 -s ' + f.read()
+        f.close()
+        os.system(newcommand)
         fan2 = str(int(value)+1)
         newcommand = command + ' -f 1 -s ' + fan2
         os.system(newcommand)
@@ -197,7 +205,7 @@ class Ui_Fan(object):
                 newcommand = command + ' -a'
                 os.system(newcommand)
                 f = open(fanctrl1, "r")
-                newcommand = command + ' -f 1 -s ' + f.read()
+                newcommand = command + ' -f 0 -s ' + f.read()
                 f.close()
                 os.system(newcommand)
                 f = open(fanctrl2, "r")
@@ -206,7 +214,8 @@ class Ui_Fan(object):
                 os.system(newcommand)
 
     def button_clicked(self):
-        newcommand  = 'nano '+ configpath
+        
+        newcommand  =   "gnome-terminal -e 'bash -c \""+'nano '+ configpath+"\" '"
         os.system(newcommand)
 
 
